@@ -1,7 +1,7 @@
 /**
  * Template for creating new Events.
  */
-type SocketEvent<E extends string, D extends any> = {
+type SocketEvent<E extends `${any}`, D extends any> = {
     event: E,
     data: D
 }
@@ -11,9 +11,9 @@ type SocketEvent<E extends string, D extends any> = {
  * 
  * It may be used to define own Events.
  * 
- * ? By default this type ensures that events are defined, because by default it defines not assignable events.
+ * ? By default this type defines an SocketEvent that can be anything.
  */
-type SocketEvents = SocketEvent<never, never> | SocketEvent<any, unknown>;
+type SocketEvents = SocketEvent<`${any}`, any>
 
 /**
  * Utility type helper for finding the Data for a specific event name.
