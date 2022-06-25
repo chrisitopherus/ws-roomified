@@ -2,15 +2,23 @@
   "name": "roomified-ws",
   "version": "1.0.0",
   "description": "Adding Rooms to the ws module",
+  "homepage": "https://chrisitopherus.github.io/ws-roomified",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
-    "ws"
+    "ws",
+    "rooms",
+    "wrapper",
+    "ts"
   ],
   "author": "chrisitopherus",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chrisitopherus/ws-roomified.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chrisitopherus/ws-roomified/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.0.0",
@@ -19,5 +27,8 @@
   },
   "dependencies": {
     "ws": "^8.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
