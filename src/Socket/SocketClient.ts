@@ -7,7 +7,7 @@ import { RawData, WebSocket } from "ws";
 import { SocketEvents, SocketEventsHelper } from "../types/SocketClient";
 
 /**
- * Abstract class for a SocketClient.
+ * Abstract class for a SocketClient that implements all necessary methods and properties.
  * @abstract
  * @class
  */
@@ -37,14 +37,14 @@ export abstract class AbstractSocketClient<SocketEventsFromServer extends Socket
 
     /**
      * EventEmitter instance used for handling the incoming socket events.
-     * @private
+     * @protected
      */
-    private _EventEmitter: EventEmitter = new EventEmitter();
+    protected _EventEmitter: EventEmitter = new EventEmitter();
 
     /**
      * Constructor of the SocketClient abstract class.
      * @param _socket The socket connection instance.
-     * @param _id Optional setting id of the socket. `By default it will create an uuid.`
+     * @param _id Optional setting id of the socket. `By default it will create an uuid`.
      * @public
      * @constructor
      */

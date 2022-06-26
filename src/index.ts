@@ -8,13 +8,11 @@ class SocketClient extends AbstractSocketClient<SocketEvents, SocketEvents> {
     constructor(socket: WebSocket) {
         super(socket);
         this.on("start", this.StartHandler);
-        this.id
     }
 
     private StartHandler = (msg: string) => {
-        console.log(msg);
+        console.log('New start event occured: ' + msg);
     }
-
 }
 
 new SocketClient("" as any).sendMessage("start", "Started...");

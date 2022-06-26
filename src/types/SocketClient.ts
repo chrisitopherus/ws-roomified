@@ -11,9 +11,9 @@ type SocketEvent<E extends `${any}`, D extends any> = {
  * 
  * It may be used to define own Events.
  * 
- * ? By default this type defines an SocketEvent that can be anything.
+ * ? By default this type defines SocketEvents to be any event with any data.
  */
-type SocketEvents = SocketEvent<`${any}`, any>
+type SocketEvents = SocketEvent<`${any}`, any> | SocketEvent<`${never}`, never>
 
 /**
  * Utility type helper for finding the Data for a specific event name.
