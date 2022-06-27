@@ -4,7 +4,7 @@ import { id } from "../utils/id.js";
 
 // import types
 import { RawData, WebSocket } from "ws";
-import { SocketEvents, SocketEventsHelper } from "../types/SocketClient";
+import { SocketEvents, SocketEventsHelper } from "../types/Socket";
 
 /**
  * Abstract class for a SocketClient that implements all necessary methods and properties.

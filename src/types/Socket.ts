@@ -1,5 +1,6 @@
 /**
  * Template for creating new Events.
+ * May be changed if needed.
  */
 type SocketEvent<E extends `${any}`, D extends any> = {
     event: E,
@@ -7,16 +8,16 @@ type SocketEvent<E extends `${any}`, D extends any> = {
 }
 
 /**
- * Just an Template to define a structure.
+ * Just a Template to define a structure.
  * 
- * It may be used to define own Events.
+ * It may be used to define own structures.
  * 
  * ? By default this type defines SocketEvents to be any event with any data.
  */
-type SocketEvents = SocketEvent<`${any}`, any> | SocketEvent<`${never}`, never>
+type SocketEvents = SocketEvent<`${any}`, any>
 
 /**
- * Utility type helper for finding the Data for a specific event name.
+ * Utility type helper for finding the data for a specific event name.
  */
 type DataByEvent<E extends SocketEvents['event'], T extends SocketEvents> = T extends { event: E } ? T : never;
 
@@ -27,4 +28,4 @@ type SocketEventsHelper<Events extends SocketEvents> = {
     [E in Events["event"]]: DataByEvent<E, Events>["data"]
 }
 
-export { SocketEventsHelper, SocketEvent, SocketEvents };
+export { SocketEventsHelper, SocketEvent, SocketEvents, DataByEvent };
