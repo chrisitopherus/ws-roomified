@@ -11,6 +11,12 @@ import { AbstractSocketClient } from "./SocketClient";
 export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEvents, SocketEvents>, SocketEventsFromServer extends SocketEvents> {
 
     /**
+     * Sockets inside the room.
+     * @private
+     */
+    private _sockets: Socket[];
+
+    /**
      * Unique identifier of the room.
      * @private
      */
@@ -25,7 +31,7 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
     }
 
     /**
-     * Getter for retrieving sockets.
+     * Getter for retrieving all sockets connected to the room.
      * @public
      */
     public get sockets() {
@@ -33,13 +39,14 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
     }
 
     /**
-     * Constructor of the Room abstract class.
+     * Constructor of the abstract Room class.
      * @param _sockets Sockets inside the room.
      * @param _id Optional setting id of the socket. `By default it will create an uuid`.
      * @public
      * @constructor
      */
-    public constructor(private _sockets: Socket[], _id?: string) {
+    public constructor(_sockets: Socket[], _id?: string) {
+        this._sockets = _sockets;
         if (_id) {
             // set id manually
             this._id = _id;

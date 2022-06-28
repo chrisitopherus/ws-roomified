@@ -14,12 +14,24 @@ import { SocketEvents, SocketEventsHelper } from "../types/Socket";
 export abstract class AbstractSocketClient<SocketEventsFromServer extends SocketEvents, SocketEventsFromClient extends SocketEvents> {
 
     /**
+     * The socket connection.
+     * @private
+     */
+    private _socket: WebSocket;
+
+    /**
      * Getter for reading the socket instance.
      * @public
      */
     public get socket(): WebSocket {
         return this._socket;
     };
+
+    /**
+     * Id of the socket.
+     * @private
+     */
+    private _id: string;
 
     /**
      * Getter for reading in the id of the socket.
@@ -30,25 +42,21 @@ export abstract class AbstractSocketClient<SocketEventsFromServer extends Socket
     };
 
     /**
-     * Id of the socket.
-     * @private
-     */
-    private _id: string;
-
-    /**
      * EventEmitter instance used for handling the incoming socket events.
      * @protected
      */
     protected _EventEmitter: EventEmitter = new EventEmitter();
 
     /**
-     * Constructor of the SocketClient abstract class.
-     * @param _socket The socket connection instance.
+     * Constructor of the abstract SocketClient class.
+     * @param _socket The socket connection.
      * @param _id Optional setting id of the socket. `By default it will create an uuid`.
      * @public
      * @constructor
      */
-    public constructor(private _socket: WebSocket, _id?: string) {
+    public constructor(_socket: WebSocket, _id?: string) {
+        // setting the socket
+        this._socket = _socket;
         // if id was set manually, then dont create a uuid
         if (_id) {
             this._id = _id;
