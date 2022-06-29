@@ -5,6 +5,8 @@ import { id } from "../utils/id.js";
 // import types
 import { RawData, WebSocket } from "ws";
 import { SocketEvents, SocketEventsHelper } from "../types/Socket";
+import { AbstractRoom } from "./Room.js";
+import { AbstractManager } from "./Manager.js";
 
 /**
  * Abstract class for a SocketClient that implements all necessary methods and properties.
@@ -48,13 +50,20 @@ export abstract class AbstractSocketClient<SocketEventsFromServer extends Socket
     protected _EventEmitter: EventEmitter = new EventEmitter();
 
     /**
+     * Property containing either the current room instance or `null`.
+     * @public
+     */
+    public currentRoom: AbstractRoom<AbstractSocketClient<SocketEventsFromServer, SocketEventsFromClient>, SocketEventsFromServer> | null = null;
+
+    /**
      * Constructor of the abstract SocketClient class.
      * @param _socket The socket connection.
+     * @param _managerInstance Manager instance reference to have access to rooms.
      * @param _id Optional setting id of the socket. `By default it will create an uuid`.
      * @public
      * @constructor
      */
-    public constructor(_socket: WebSocket, _id?: string) {
+    public constructor(_socket: WebSocket, private _managerInstance: AbstractManager<AbstractSocketClient<SocketEventsFromServer, SocketEventsFromClient>, AbstractRoom<AbstractSocketClient<SocketEventsFromServer, SocketEventsFromClient>, SocketEventsFromServer>>, _id?: string) {
         // setting the socket
         this._socket = _socket;
         // if id was set manually, then dont create a uuid
@@ -69,9 +78,69 @@ export abstract class AbstractSocketClient<SocketEventsFromServer extends Socket
     }
 
     /**
+     * Method for registering a handler to a specific socket event sent by a client.
+     * @param event The event name.
+     * @param cb Callback function to be called when the socket event from the client occured.
+     * @returns The socket client instance for chaining.
+     * @public
+     */
+    public on<E extends keyof SocketEventsHelper<SocketEventsFromClient>>(event: E, cb: (message: SocketEventsHelper<SocketEventsFromClient>[E]) => unknown) {
+        this._EventEmitter.on(event, cb);
+        return this;
+    }
+
+    /**
+     * Method for unregistering a handler to a specific socket event.
+     * @param event The event name.
+     * @param cb Callback function to be called when the socket event from the client occured.
+     * @returns The socket client instance for chaining.
+     */
+    public off<E extends keyof SocketEventsHelper<SocketEventsFromClient>>(event: E, cb: (message: SocketEventsHelper<SocketEventsFromClient>[E]) => unknown) {
+        this._EventEmitter.off(event, cb);
+        return this;
+    }
+
+    /**
+     * Method for joining a new room.
+     * @param id Id of the room to join.
+     * @returns The socket client instance for chaining.
+     * @public
+     */
+    public join(id: string) {
+        // join the room
+        this._managerInstance.joinRoomById(id, this);
+        return this;
+    }
+
+
+    /**
+     * Method for leaving the current room.
+     * @returns The socket client instance for chaining.
+     * @public
+     */
+    public leave() {
+        if (!this.currentRoom) return this;
+        // leave the current room
+        this._managerInstance.leaveRoomById(this.currentRoom.id, this);
+        return this;
+    }
+
+    /**
+     * Method for leaving a room by its id.
+     * @param id Id of the room to leave.
+     * @returns The socket client instance for chaining.
+     * @public
+     */
+    public leaveRoomById(id: string) {
+        this._managerInstance.leaveRoomById(id, this);
+        return this;
+    }
+
+    /**
      * Method for sending a message to the client.
      * @param event Name of the event.
      * @param data Data according to the event.
+     * @returns The socket client instance for chaining.
      * @public
      */
     public sendMessage<E extends keyof SocketEventsHelper<SocketEventsFromServer>>(event: E, data: SocketEventsHelper<SocketEventsFromServer>[E]) {
@@ -82,16 +151,7 @@ export abstract class AbstractSocketClient<SocketEventsFromServer extends Socket
         }
         // sending the message to the client
         this.socket.send(JSON.stringify(message));
-    }
-
-    /**
-     * Method for registering a handler to a specific socket event sent by a client.
-     * @param event The event name.
-     * @param cb Callback function to be called when the socket event from the client occured.
-     * @public
-     */
-    public on<E extends keyof SocketEventsHelper<SocketEventsFromClient>>(event: E, cb: (message: SocketEventsHelper<SocketEventsFromClient>[E]) => unknown) {
-        this._EventEmitter.on(event as any, cb);
+        return this;
     }
 
     /**
@@ -107,6 +167,5 @@ export abstract class AbstractSocketClient<SocketEventsFromServer extends Socket
 
         // emiting the event with the data
         this._EventEmitter.emit(event, data);
-
     }
 }

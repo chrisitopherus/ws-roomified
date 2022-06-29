@@ -57,9 +57,42 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
     }
 
     /**
+     * Method for adding a socket to the room.
+     * @param socket The socket that joined the room.
+     * @returns The room instance for chaining.
+     * @public
+     */
+    public addSocket(socket: Socket) {
+        // push the given socket to the rooms sockets array
+        this._sockets.push(socket);
+        return this;
+    }
+
+    /**
+     * Method for removing a socket from the room.
+     * @param socket The socket that should leave the room.
+     * @returns The room instance for chaining.
+     * @public
+     */
+    public removeSocket(socket: Socket) {
+        // looping through the connected sockets
+        for (let i = 0; i < this._sockets.length; ++i) {
+            // retrieving the socket
+            const storedSocket = this._sockets[i];
+            if (storedSocket.id === socket.id) {
+                // remove the socket
+                this._sockets.splice(i, 1);
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
      * Method for sending a new message to all the sockets connected to the room.
      * @param event The event.
      * @param message Data to be sent.
+     * @returns The room instance for chaining.
      * @public
      */
     public all<E extends keyof SocketEventsHelper<SocketEventsFromServer>>(event: E, message: SocketEventsHelper<SocketEventsFromServer>[E]) {
@@ -70,6 +103,7 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
             // send the specified message
             storedSocket.sendMessage(event, message.data);
         }
+        return this;
     }
 
     /**
@@ -77,6 +111,7 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
      * @param id Id of the socket that should not receive the message.
      * @param event Event of the message.
      * @param message Data to be sent to the sockets.
+     * @returns The room instance for chaining.
      * @public
      */
     public other<E extends keyof SocketEventsHelper<SocketEventsFromServer>>(id: string, event: E, message: SocketEventsHelper<SocketEventsFromServer>[E]) {
@@ -89,6 +124,7 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
             // send the specified message
             storedSocket.sendMessage(event, message.data);
         }
+        return this;
     }
 
     /**
@@ -96,6 +132,7 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
      * @param id Id of the socket that should receive the message.
      * @param event Event of the message.
      * @param message Data to be sent to the sockets.
+     * @returns The room instance for chaining.
      * @public
      */
     public one<E extends keyof SocketEventsHelper<SocketEventsFromServer>>(id: string, event: E, message: SocketEventsHelper<SocketEventsFromServer>[E]) {
@@ -109,6 +146,7 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
                 break;
             }
         }
+        return this;
     }
 
     /**
@@ -116,6 +154,7 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
      * @param ids Ids of the sockets that should receive the message.
      * @param event Event of the message.
      * @param message Data to be sent to the sockets.
+     * @returns The room instance for chaining.
      * @public
      */
     public some<E extends keyof SocketEventsHelper<SocketEventsFromServer>>(ids: string[], event: E, message: SocketEventsHelper<SocketEventsFromServer>[E]) {
@@ -134,5 +173,6 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
                 }
             }
         }
+        return this;
     }
 }

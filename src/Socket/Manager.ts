@@ -53,6 +53,7 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
      * Method for adding a new socket to the socket storage.
      * ? Takes a socket instance as an argument and pushes it into the socket storage.
      * @param createdSocket Created SocketClient instance.
+     * @returns Information.
      * @public
      */
     public addSocket(createdSocket: Socket): {
@@ -92,9 +93,10 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
     /**
      * Method for removing multiple existing sockets by their id.
      * @param ids Ids of the sockets to be removed.
+     * @returns Either the removed sockets or `null`.
      * @public
      */
-    public removeSocketsById(ids: string[]) {
+    public removeSocketsById(ids: string[]): Socket[] | null {
         const removedSockets: Socket[] = [];
         // looping through the connected sockets
         for (let i = 0; i < this._sockets.length; ++i) {
@@ -105,7 +107,7 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
                 if (ids[j] === storedSocket.id) {
                     // remove the id from the array for better performance
                     ids.splice(j, 1);
-                    // delete the socket
+                    // delete the socket and collect it
                     removedSockets.push(...this._sockets.splice(i, 1));
                     // reduce the counter variable, because one socket was deleted
                     i--;
@@ -113,6 +115,7 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
                 }
             }
         }
+        return removedSockets.length === 0 ? null : removedSockets;
     }
 
     /**
@@ -153,6 +156,74 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
             }
         }
         return null;
+    }
+
+    /**
+     * Method for removing multiple existing rooms by their id.
+     * @param ids Ids of the rooms to be removed.
+     * @returns Either the removed rooms or `null`.
+     * @public
+     */
+    public removeRoomsById(ids: string[]): Room[] | null {
+        const removedRooms: Room[] = [];
+        // looping through the existing rooms
+        for (let i = 0; i < this._rooms.length; ++i) {
+            // retrieving the room
+            const storedRoom = this._rooms[i];
+            // check if socket is the one of the specified ones
+            for (let j = 0; j < ids.length; ++j) {
+                if (ids[j] === storedRoom.id) {
+                    // remove the id from the array for better performance
+                    ids.splice(j, 1);
+                    // delete the socket and collect it
+                    removedRooms.push(...this._rooms.splice(i, 1));
+                    // reduce the counter variable, because one socket was deleted
+                    i--;
+                    break;
+                }
+            }
+        }
+        return removedRooms.length === 0 ? null : removedRooms;
+    }
+
+    /**
+     * Method that lets one socket join a room by its id.
+     * @param id Id of the room to join.
+     * @param socket The socket which should join the room.
+     * @returns The manager instance for chaining.
+     * @public
+     */
+    public joinRoomById(id: string, socket: Socket) {
+        for (let i = 0; i < this._rooms.length; ++i) {
+            const storedRoom = this._rooms[i];
+            if (id === storedRoom.id) {
+                // join the room
+                storedRoom.addSocket(socket);
+                socket.currentRoom = storedRoom;
+                break;
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Method that lets one socket leave a room by its id.
+     * @param id Id of the room to leave.
+     * @param socket The socket which should leave the room.
+     * @returns The manager instance for chaining.
+     * @public
+     */
+    public leaveRoomById(id: string, socket: Socket) {
+        for (let i = 0; i < this._rooms.length; ++i) {
+            const storedRoom = this._rooms[i];
+            if (id === storedRoom.id) {
+                // leave the room
+                storedRoom.removeSocket(socket);
+                socket.currentRoom = null;
+                break;
+            }
+        }
+        return this;
     }
 
 
