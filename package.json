@@ -1,9 +1,10 @@
 {
-  "name": "roomified-ws",
-  "version": "1.0.0",
-  "description": "Adding Rooms to the ws module",
+  "name": "ws-roomified",
+  "version": "0.5.0",
+  "description": "A room wrapper for the ws module",
   "homepage": "https://chrisitopherus.github.io/ws-roomified",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "type": "module",
   "keywords": [
     "ws",

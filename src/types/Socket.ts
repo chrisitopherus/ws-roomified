@@ -1,6 +1,5 @@
 /**
  * Template for creating new Events.
- * May be changed if needed.
  */
 type SocketEvent<E extends `${any}`, D extends any> = {
     event: E,
@@ -9,8 +8,6 @@ type SocketEvent<E extends `${any}`, D extends any> = {
 
 /**
  * Just a Template to define a structure.
- * 
- * It may be used to define own structures.
  * 
  * ? By default this type defines SocketEvents to be any event with any data.
  */

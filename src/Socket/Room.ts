@@ -101,7 +101,7 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
             // retrieving the socket
             const storedSocket = this._sockets[i];
             // send the specified message
-            storedSocket.sendMessage(event, message.data);
+            storedSocket.sendMessage(event, message);
         }
         return this;
     }
@@ -120,9 +120,9 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
             // retrieving the socket
             const storedSocket = this._sockets[i];
             // check if socket is the exception
-            if (id = storedSocket.id) continue;
+            if (id === storedSocket.id) continue;
             // send the specified message
-            storedSocket.sendMessage(event, message.data);
+            storedSocket.sendMessage(event, message);
         }
         return this;
     }
@@ -141,8 +141,8 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
             // retrieving the socket
             const storedSocket = this._sockets[i];
             // check if socket is the one that is specified
-            if (id = storedSocket.id) {
-                storedSocket.sendMessage(event, message.data);
+            if (id === storedSocket.id) {
+                storedSocket.sendMessage(event, message);
                 break;
             }
         }
@@ -168,7 +168,7 @@ export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEve
                     // remove the id from the array for better performance
                     ids.splice(j, 1);
                     // send the specified message
-                    storedSocket.sendMessage(event, message.data);
+                    storedSocket.sendMessage(event, message);
                     break;
                 }
             }

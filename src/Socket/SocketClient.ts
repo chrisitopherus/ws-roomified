@@ -57,6 +57,8 @@ export abstract class AbstractSocketClient<SocketEventsFromServer extends Socket
 
     /**
      * Constructor of the abstract SocketClient class.
+     * 
+     * ? By default it will add the created client to the storage inside the given manager instance.
      * @param _socket The socket connection.
      * @param _managerInstance Manager instance reference to have access to rooms.
      * @param _id Optional setting id of the socket. `By default it will create an uuid`.
@@ -72,6 +74,8 @@ export abstract class AbstractSocketClient<SocketEventsFromServer extends Socket
         } else {
             this._id = id();
         }
+        // add the client to the stored sockets
+        this._managerInstance.addSocket(this);
 
         // listen to messages
         _socket.on('message', this.receiveMessage);
@@ -84,8 +88,8 @@ export abstract class AbstractSocketClient<SocketEventsFromServer extends Socket
      * @returns The socket client instance for chaining.
      * @public
      */
-    public on<E extends keyof SocketEventsHelper<SocketEventsFromClient>>(event: E, cb: (message: SocketEventsHelper<SocketEventsFromClient>[E]) => unknown) {
-        this._EventEmitter.on(event, cb);
+    public on<E extends keyof SocketEventsHelper<SocketEventsFromClient>>(event: E, cb: (this: this, message: SocketEventsHelper<SocketEventsFromClient>[E]) => unknown) {
+        this._EventEmitter.on(event, cb.bind(this));
         return this;
     }
 

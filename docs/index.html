@@ -1,5 +1,154 @@
-<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>roomified-ws</title><meta name="description" content="Documentation for roomified-ws"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">roomified-ws</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>roomified-ws </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
-<a href="#roomified-ws-a-room-wrapper-for-the-nodejs-ws-module" id="roomified-ws-a-room-wrapper-for-the-nodejs-ws-module" style="color: inherit; text-decoration: none;">
-  <h1>roomified-ws: A room wrapper for the nodejs ws module</h1>
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>ws-roomified</title><meta name="description" content="Documentation for ws-roomified"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">ws-roomified</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>ws-roomified </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#ws-roomified" id="ws-roomified" style="color: inherit; text-decoration: none;">
+  <h1>ws-roomified</h1>
 </a>
+<p><a href="https://www.npmjs.com/package/ws"><img src="https://img.shields.io/badge/version-0.5.0-blue.svg?logo=npm" alt="Version npm"></a></p>
+<blockquote>
+<p>A room wrapper for the ws module optimized for working with typescript by providing built-in types.</p>
+</blockquote>
+
+<a href="#homepage" id="homepage" style="color: inherit; text-decoration: none;">
+  <h2><a href="https://chrisitopherus.github.io/ws-roomified">Homepage</a></h2>
+</a>
+
+<a href="#author" id="author" style="color: inherit; text-decoration: none;">
+  <h2>Author</h2>
+</a>
+<p>👤 <strong>chrisitopherus</strong></p>
+
+<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+  <h2>Contributing</h2>
+</a>
+<p>Contributions, issues and feature requests are welcome!</p>
+<p>Feel free to check <a href="https://github.com/chrisitopherus/ws-roomified/issues">issues page</a>.</p>
+<hr>
+<p><strong>Note</strong>: This module does not work in the browser. Browser clients must use the native
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket"><code>WebSocket</code></a>
+object. But you can use one of the many wrappers available on npm, like
+<a href="https://github.com/heineiuo/isomorphic-ws">isomorphic-ws</a> to use the ws module in the browser.</p>
+
+<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
+  <h2>Table of Contents</h2>
+</a>
+<ul>
+<li><a href="#ws-roomified">ws-roomified</a><ul>
+<li><a href="#homepage">Homepage</a></li>
+<li><a href="#author">Author</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#installing">Installing</a></li>
+<li><a href="#api-docs">API docs</a></li>
+<li><a href="#how-to-use">How to use</a><ul>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#setting-up-the-classes">Setting up the classes</a><ul>
+<li><a href="#socketclient">SocketClient</a></li>
+<li><a href="#room">Room</a></li>
+<li><a href="#manager">Manager</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#usage-examples">Usage examples</a><ul>
+<li><a href="#handling-a-new-connection-on-the-server">Handling a new connection on the server</a></li>
+</ul>
+</li>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+</li>
+</ul>
+
+<a href="#installing" id="installing" style="color: inherit; text-decoration: none;">
+  <h2>Installing</h2>
+</a>
+<pre><code class="language-sh"><span class="hl-0">npm install</span>
+</code></pre>
+
+<a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
+  <h2>API docs</h2>
+</a>
+<p>See <a href="https://chrisitopherus.github.io/ws-roomified"><code>/docs/index.html</code></a> for Node.js-like documentation of ws classes and
+utility functions.</p>
+
+<a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
+  <h2>How to use</h2>
+</a>
+<p>First of all you obviously need to install the moudle itself before you can use it.</p>
+<p>Also make sure you installed the <a href="(https://www.npmjs.com/package/ws)"><code>ws</code></a> module and its types (if you are using typescript <a href="(https://www.npmjs.com/package/@types/ws)"><code>@types/ws</code></a>)</p>
+
+<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+  <h3>Getting Started</h3>
+</a>
+<p><strong>Note: The Guide will be written in Typescript, but no worries besides TS-only features it will be the same for Javascript.</strong></p>
+<p>The module comes with 3 main <code>abstract</code> classes.</p>
+<ul>
+<li><code>AbstractSocketClient</code> (Wrapper for the Sockets)</li>
+<li><code>AbstractRoom</code> (Wrapper for the Rooms)</li>
+<li><code>AbstractManager</code> (Manages/Saves all the sockets and rooms)</li>
+</ul>
+<p>And some type aliases:</p>
+<ul>
+<li><code>SocketEvent</code> Template for creating new Events.</li>
+<li><code>SocketEvents</code> Just a Template to define any event with any data. Use it if you don&#39;t care about the event names and data.</li>
+<li><code>SocketEventsHelper</code> Utility type helper for creating a mapped type for the socket events and their data.</li>
+<li><code>DataByEvent</code> Utility type helper for finding the data for a specific event name.</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-1">// importing the abstract classes</span><br/><span class="hl-2">import</span><span class="hl-0"> { </span><span class="hl-3">AbstractSocketClient</span><span class="hl-0">, </span><span class="hl-3">AbstractRoom</span><span class="hl-0">, </span><span class="hl-3">AbstractManager</span><span class="hl-0"> } </span><span class="hl-2">from</span><span class="hl-0"> </span><span class="hl-4">&#39;ws-roomified&#39;</span><span class="hl-0">;</span><br/><span class="hl-1">// importing the type aliases</span><br/><span class="hl-2">import</span><span class="hl-0"> {</span><span class="hl-3">SocketEvent</span><span class="hl-0">, </span><span class="hl-3">SocketEvents</span><span class="hl-0">, </span><span class="hl-3">SocketEventsHelper</span><span class="hl-0">, </span><span class="hl-3">DataByEvent</span><span class="hl-0">} </span><span class="hl-2">from</span><span class="hl-0"> </span><span class="hl-4">&#39;ws-roomified&#39;</span><span class="hl-0">;</span>
+</code></pre>
+
+<a href="#setting-up-the-classes" id="setting-up-the-classes" style="color: inherit; text-decoration: none;">
+  <h3>Setting up the classes</h3>
+</a>
+<p>First of all, lets create some sample events (only for ts users needed):</p>
+<p>To accomplish this, we will use one of exported type aliases <code>SocketEvent</code>.</p>
+<p>Our goal is to differentiate between events sent by the server and events sent by the client:</p>
+<pre><code class="language-ts"><span class="hl-1">// type alias containing the events sent by the server</span><br/><span class="hl-5">type</span><span class="hl-0"> </span><span class="hl-6">FromServer</span><span class="hl-0"> = </span><span class="hl-6">SocketEvent</span><span class="hl-0">&lt;</span><span class="hl-4">&quot;message&quot;</span><span class="hl-0">, {</span><span class="hl-3">message</span><span class="hl-0">: </span><span class="hl-6">string</span><span class="hl-0">}&gt; | </span><span class="hl-6">SocketEvent</span><span class="hl-0">&lt;</span><span class="hl-4">&quot;ping&quot;</span><span class="hl-0">, </span><span class="hl-6">number</span><span class="hl-0">&gt;;</span><br/><br/><span class="hl-1">// type alias containing the events sent by the client</span><br/><span class="hl-5">type</span><span class="hl-0"> </span><span class="hl-6">FromClient</span><span class="hl-0"> = </span><span class="hl-6">SocketEvent</span><span class="hl-0">&lt;</span><span class="hl-4">&quot;message&quot;</span><span class="hl-0">, </span><span class="hl-6">string</span><span class="hl-0">&gt; | </span><span class="hl-6">SocketEvent</span><span class="hl-0">&lt;</span><span class="hl-4">&quot;pong&quot;</span><span class="hl-0">, </span><span class="hl-6">number</span><span class="hl-0">&gt;;</span>
+</code></pre>
+<p>In order to work with this module, you need to extend the provided abstract classes:</p>
+<p><strong>Note: A list of all methods and properties can be found in the docs.</strong></p>
+
+<a href="#socketclient" id="socketclient" style="color: inherit; text-decoration: none;">
+  <h4>SocketClient</h4>
+</a>
+<p>The SocketClient is meant to be the socket connection saved on the server.</p>
+<pre><code class="language-ts"><span class="hl-1">// importing the WebSocket from the ws module to overwrite the initial WebSocket type </span><br/><span class="hl-2">import</span><span class="hl-0"> { </span><span class="hl-3">WebSocket</span><span class="hl-0"> } </span><span class="hl-2">from</span><span class="hl-0"> </span><span class="hl-4">&#39;ws&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-1">// for TS users, pass the type aliases containing the events as generics</span><br/><span class="hl-5">class</span><span class="hl-0"> </span><span class="hl-6">SocketClient</span><span class="hl-0"> </span><span class="hl-5">extends</span><span class="hl-0"> </span><span class="hl-6">AbstractSocketClient</span><span class="hl-0">&lt;</span><span class="hl-6">FromServer</span><span class="hl-0">, </span><span class="hl-6">FromClient</span><span class="hl-0">&gt; {</span><br/><span class="hl-0">    </span><span class="hl-1">// Manager will be the name of the extended AbstractManager class -&gt; later in the guide</span><br/><br/><span class="hl-0">    </span><span class="hl-1">// we pass the socket connection and the manager instance since they are needed by the abstract class</span><br/><span class="hl-0">    </span><span class="hl-5">constructor</span><span class="hl-0">(</span><span class="hl-3">socket</span><span class="hl-0">: </span><span class="hl-6">WebSocket</span><span class="hl-0">, </span><span class="hl-3">manager</span><span class="hl-0">: </span><span class="hl-6">Manager</span><span class="hl-0">) {</span><br/><span class="hl-0">        </span><span class="hl-1">// calling the constructor of the abstract class with the socket and the manager</span><br/><span class="hl-0">        </span><span class="hl-5">super</span><span class="hl-0">(</span><span class="hl-3">socket</span><span class="hl-0">, </span><span class="hl-3">manager</span><span class="hl-0">);</span><br/><span class="hl-0">    }</span><br/><span class="hl-0">}</span>
+</code></pre>
+<p>Use now the SocketClient class to implement own logic, props or whatever you need.</p>
+
+<a href="#room" id="room" style="color: inherit; text-decoration: none;">
+  <h4>Room</h4>
+</a>
+<p>The Room is meant to be group some socket connections together.</p>
+<pre><code class="language-ts"><span class="hl-1">// for TS users, pass the SocketClient and the type alias containing the events sent by the server as generics</span><br/><span class="hl-5">class</span><span class="hl-0"> </span><span class="hl-6">Room</span><span class="hl-0"> </span><span class="hl-5">extends</span><span class="hl-0"> </span><span class="hl-6">AbstractRoom</span><span class="hl-0">&lt;</span><span class="hl-6">SocketClient</span><span class="hl-0">, </span><span class="hl-6">FromServer</span><span class="hl-0">&gt;{</span><br/><span class="hl-0">    </span><span class="hl-5">constructor</span><span class="hl-0">() {</span><br/><span class="hl-0">        </span><span class="hl-1">// if there are already some sockets which should be connected to the room, then simply define a new constructor parameter and pass it then to the super call</span><br/><span class="hl-0">        </span><span class="hl-5">super</span><span class="hl-0">([]);</span><br/><span class="hl-0">    }</span><br/><span class="hl-0">}</span>
+</code></pre>
+<p>Use now the Room class to implement own logic, props or whatever you need.</p>
+
+<a href="#manager" id="manager" style="color: inherit; text-decoration: none;">
+  <h4>Manager</h4>
+</a>
+<p>The Manager is meant to stores and manage all sockets and rooms.</p>
+<pre><code class="language-ts"><span class="hl-1">// for TS users, pass the SocketClient and Room as generics</span><br/><span class="hl-5">class</span><span class="hl-0"> </span><span class="hl-6">Manager</span><span class="hl-0"> </span><span class="hl-5">extends</span><span class="hl-0"> </span><span class="hl-6">AbstractManager</span><span class="hl-0">&lt;</span><span class="hl-6">SocketClient</span><span class="hl-0">, </span><span class="hl-6">Room</span><span class="hl-0">&gt;{</span><br/><span class="hl-0">    </span><span class="hl-1">// we pass already connected sockets and already created rooms to the constructor</span><br/><span class="hl-0">    </span><span class="hl-5">constructor</span><span class="hl-0">(</span><span class="hl-3">sockets</span><span class="hl-0">: </span><span class="hl-6">SocketClient</span><span class="hl-0">[], </span><span class="hl-3">rooms</span><span class="hl-0">: </span><span class="hl-6">Room</span><span class="hl-0">[]) {</span><br/><span class="hl-0">        </span><span class="hl-5">super</span><span class="hl-0">(</span><span class="hl-3">sockets</span><span class="hl-0">, </span><span class="hl-3">rooms</span><span class="hl-0">);</span><br/><span class="hl-0">    }</span><br/><span class="hl-0">}</span>
+</code></pre>
+<p>Use now the Manager class to implement own logic, props or whatever you need.</p>
+
+<a href="#usage-examples" id="usage-examples" style="color: inherit; text-decoration: none;">
+  <h2>Usage examples</h2>
+</a>
+<p><strong>Note: Using the things that were used in the guide.</strong></p>
+
+<a href="#handling-a-new-connection-on-the-server" id="handling-a-new-connection-on-the-server" style="color: inherit; text-decoration: none;">
+  <h3>Handling a new connection on the server</h3>
+</a>
+<pre><code class="language-ts"><span class="hl-1">// creating an empty Manager with our created class</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-7">manager</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-8">Manager</span><span class="hl-0">([], []);</span><br/><br/><span class="hl-1">// creating a simple room</span><br/><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-7">room</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-8">Room</span><span class="hl-0">();</span><br/><br/><span class="hl-1">// adding the room to the manager</span><br/><span class="hl-3">manager</span><span class="hl-0">.</span><span class="hl-8">addRoom</span><span class="hl-0">(</span><span class="hl-3">room</span><span class="hl-0">);</span><br/><br/><span class="hl-1">// listening to the connection event</span><br/><span class="hl-3">wsServer</span><span class="hl-0">.</span><span class="hl-8">on</span><span class="hl-0">(</span><span class="hl-4">&#39;connection&#39;</span><span class="hl-0">, </span><span class="hl-3">socket</span><span class="hl-0"> </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-1">// wrapping the connection in our created SocketCLient class, the connection is automatically passed to the manager</span><br/><span class="hl-0">    </span><span class="hl-5">const</span><span class="hl-0"> </span><span class="hl-7">client</span><span class="hl-0"> = </span><span class="hl-5">new</span><span class="hl-0"> </span><span class="hl-8">SocketClient</span><span class="hl-0">(</span><span class="hl-3">socket</span><span class="hl-0">, </span><span class="hl-3">manager</span><span class="hl-0">);</span><br/><br/><span class="hl-0">    </span><span class="hl-1">// now we will simply join our only room by its id and then we notify the client that he joined the room</span><br/><span class="hl-0">    </span><span class="hl-3">client</span><span class="hl-0">.</span><span class="hl-8">join</span><span class="hl-0">(</span><span class="hl-3">room</span><span class="hl-0">.</span><span class="hl-3">id</span><span class="hl-0">).</span><span class="hl-8">sendMessage</span><span class="hl-0">(</span><span class="hl-4">&quot;message&quot;</span><span class="hl-0">, { </span><span class="hl-3">message:</span><span class="hl-0"> </span><span class="hl-4">&quot;you joined a room&quot;</span><span class="hl-0"> });</span><br/><span class="hl-0">    </span><span class="hl-1">// as you see we can also chain methods since many methods return the instance back</span><br/><br/><span class="hl-0">    </span><span class="hl-1">// now we notify other clients in the room that someone joined the room </span><br/><br/><span class="hl-0">    </span><span class="hl-1">// checking if the client really is currently inside a room, because something could have gone wrong when joining the room</span><br/><span class="hl-0">    </span><span class="hl-2">if</span><span class="hl-0"> (</span><span class="hl-3">client</span><span class="hl-0">.</span><span class="hl-3">currentRoom</span><span class="hl-0">){</span><br/><span class="hl-0">        </span><span class="hl-3">client</span><span class="hl-0">.</span><span class="hl-3">currentRoom</span><span class="hl-0">.</span><span class="hl-8">other</span><span class="hl-0">(</span><span class="hl-3">client</span><span class="hl-0">.</span><span class="hl-3">id</span><span class="hl-0">, </span><span class="hl-4">&quot;message&quot;</span><span class="hl-0">, { </span><span class="hl-3">message:</span><span class="hl-0"> </span><span class="hl-4">`client: </span><span class="hl-5">${</span><span class="hl-3">client</span><span class="hl-9">.</span><span class="hl-3">id</span><span class="hl-5">}</span><span class="hl-4"> joined the room`</span><span class="hl-0">});</span><br/><span class="hl-0">    }</span><br/><br/><span class="hl-0">    </span><span class="hl-1">// adding one listener to &quot;message&quot; events sent by the client</span><br/><span class="hl-0">    </span><span class="hl-1">// this could ofc also be done directly inside the SocketClient constructor</span><br/><span class="hl-0">    </span><span class="hl-3">client</span><span class="hl-0">.</span><span class="hl-8">on</span><span class="hl-0">(</span><span class="hl-4">&quot;message&quot;</span><span class="hl-0">, </span><span class="hl-5">function</span><span class="hl-0"> (</span><span class="hl-3">msg</span><span class="hl-0">) {</span><br/><span class="hl-0">        </span><span class="hl-1">// the this keyword will be pointing the the SocketClient instance, which received the message</span><br/><span class="hl-0">        </span><br/><span class="hl-0">        </span><span class="hl-1">// now we will send the message to all clients in the room including the sender</span><br/><span class="hl-0">        </span><span class="hl-2">if</span><span class="hl-0"> (</span><span class="hl-3">client</span><span class="hl-0">.</span><span class="hl-3">currentRoom</span><span class="hl-0">){</span><br/><span class="hl-0">            </span><span class="hl-3">client</span><span class="hl-0">.</span><span class="hl-3">currentRoom</span><span class="hl-0">.</span><span class="hl-8">all</span><span class="hl-0">(</span><span class="hl-4">&quot;message&quot;</span><span class="hl-0">, { </span><span class="hl-3">message:</span><span class="hl-0"> </span><span class="hl-3">msg</span><span class="hl-0">});</span><br/><span class="hl-0">        }</span><br/><span class="hl-0">    });</span><br/><span class="hl-0">});</span>
+</code></pre>
+
+<a href="#changelog" id="changelog" style="color: inherit; text-decoration: none;">
+  <h2>Changelog</h2>
+</a>
+<p>We&#39;re using the GitHub <a href="https://github.com/chrisitopherus/ws-roomified/releases">releases</a> for changelog entries.</p>
+
+<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+  <h2>License</h2>
+</a>
+<p><a href="LICENSE">MIT</a></p>
 </div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/AbstractManager.html" class="tsd-kind-icon">Abstract<wbr/>Manager</a></li><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/AbstractRoom.html" class="tsd-kind-icon">Abstract<wbr/>Room</a></li><li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/AbstractSocketClient.html" class="tsd-kind-icon">Abstract<wbr/>Socket<wbr/>Client</a></li><li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#DataByEvent" class="tsd-kind-icon">Data<wbr/>By<wbr/>Event</a></li><li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#SocketEvent" class="tsd-kind-icon">Socket<wbr/>Event</a></li><li class="tsd-kind-type-alias"><a href="modules.html#SocketEvents" class="tsd-kind-icon">Socket<wbr/>Events</a></li><li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#SocketEventsHelper" class="tsd-kind-icon">Socket<wbr/>Events<wbr/>Helper</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>

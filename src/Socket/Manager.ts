@@ -50,7 +50,8 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
     }
 
     /**
-     * Method for adding a new socket to the socket storage.
+     * Method for adding a new socket manually to the socket storage.
+     * 
      * ? Takes a socket instance as an argument and pushes it into the socket storage.
      * @param createdSocket Created SocketClient instance.
      * @returns Information.
@@ -63,6 +64,19 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
     } {
         // saving the previous length
         const prevLength = this.sockets.length;
+        // looping through the sockets
+        for (let i = 0; i < this._sockets.length; ++i) {
+            // retrive a stored socket
+            const storedSocket = this._sockets[i];
+            if (storedSocket.id === createdSocket.id) {
+                // return that information that indicates that nothing was added
+                return {
+                    addedSocket: createdSocket,
+                    newLength: prevLength,
+                    prevLength
+                };
+            }
+        }
         // pushing the room and saving the length
         const newLength = this._sockets.push(createdSocket);
         // return information
@@ -120,6 +134,7 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
 
     /**
      * Method for adding a new room to the room storage.
+     * 
      * ? Takes a room instance as an argument and pushes it into the room storage.
      * @param createdRoom Created Room instance.
      * @public
