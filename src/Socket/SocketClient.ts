@@ -94,7 +94,7 @@ export abstract class AbstractSocketClient<SocketEventsFromServer extends Socket
     }
 
     /**
-     * Method for unregistering a handler to a specific socket event.
+     * Method for unregistering a handler from a specific socket event.
      * @param event The event name.
      * @param cb Callback function to be called when the socket event from the client occured.
      * @returns The socket client instance for chaining.

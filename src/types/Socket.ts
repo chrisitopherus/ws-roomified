@@ -25,4 +25,9 @@ type SocketEventsHelper<Events extends SocketEvents> = {
     [E in Events["event"]]: DataByEvent<E, Events>["data"]
 }
 
-export { SocketEventsHelper, SocketEvent, SocketEvents, DataByEvent };
+/**
+ * Utility type which makes a value nullable.
+ */
+type Nullable<T> = T | null;
+
+export { SocketEventsHelper, SocketEvent, SocketEvents, DataByEvent, Nullable };

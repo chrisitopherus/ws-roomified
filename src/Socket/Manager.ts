@@ -1,4 +1,4 @@
-import { SocketEvents } from "../types/Socket";
+import { SocketEvents, Nullable } from "../types/Socket";
 import { AbstractRoom } from "./Room";
 import { AbstractSocketClient } from "./SocketClient";
 
@@ -90,15 +90,16 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
     /**
      * Method for removing an existing socket by its id.
      * @param id Id of the socket to be removed.
-     * @returns Either the removed socket or `null`.
+     * @returns Either the true or `null`.
      * @public
      */
-    public removeSocketById(id: string): Socket | null {
+    public removeSocketById(id: string): true | null {
         for (let i = 0; i < [...this._sockets].length; ++i) {
             const storedSocket = this._sockets[i];
             if (id === storedSocket.id) {
                 const deletedSocket = this._sockets.splice(i, 1);
-                return deletedSocket[0];
+                this.garbage(deletedSocket);
+                return true;
             }
         }
         return null;
@@ -107,10 +108,10 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
     /**
      * Method for removing multiple existing sockets by their id.
      * @param ids Ids of the sockets to be removed.
-     * @returns Either the removed sockets or `null`.
+     * @returns Either true or `null`.
      * @public
      */
-    public removeSocketsById(ids: string[]): Socket[] | null {
+    public removeSocketsById(ids: string[]): true | null {
         const removedSockets: Socket[] = [];
         // looping through the connected sockets
         for (let i = 0; i < this._sockets.length; ++i) {
@@ -129,7 +130,11 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
                 }
             }
         }
-        return removedSockets.length === 0 ? null : removedSockets;
+
+        // setting value to null, so garbage collector can collect it
+        const len = removedSockets.length;
+        this.garbage(removedSockets);
+        return len === 0 ? null : true;
     }
 
     /**
@@ -159,15 +164,17 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
     /**
      * Method for removing an existing room by its id.
      * @param id Id of the room to be removed.
-     * @returns Either the removed room or `null`.
+     * @returns Either true or `null`.
      * @public
      */
-    public removeRoomById(id: string): Room | null {
+    public removeRoomById(id: string): true | null {
         for (let i = 0; i < [...this._rooms].length; ++i) {
             const storedRoom = this._rooms[i];
             if (id === storedRoom.id) {
                 const deletedRoom = this._rooms.splice(i, 1);
-                return deletedRoom[0];
+                // setting value to null, so garbage collector can collect it
+                this.garbage(deletedRoom);
+                return true;
             }
         }
         return null;
@@ -176,10 +183,10 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
     /**
      * Method for removing multiple existing rooms by their id.
      * @param ids Ids of the rooms to be removed.
-     * @returns Either the removed rooms or `null`.
+     * @returns Either the true or `null`.
      * @public
      */
-    public removeRoomsById(ids: string[]): Room[] | null {
+    public removeRoomsById(ids: string[]): true | null {
         const removedRooms: Room[] = [];
         // looping through the existing rooms
         for (let i = 0; i < this._rooms.length; ++i) {
@@ -198,7 +205,11 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
                 }
             }
         }
-        return removedRooms.length === 0 ? null : removedRooms;
+        const len = removedRooms.length;
+        // setting value to null, so garbage collector can collect it
+        this.garbage(removedRooms);
+
+        return len === 0 ? null : true;
     }
 
     /**
@@ -241,5 +252,15 @@ export abstract class AbstractManager<Socket extends AbstractSocketClient<Socket
         return this;
     }
 
+    /**
+     * Method for clearing a reference from a variable, so it can be collected by the garbage collector.
+     * @param instance A variable holding a reference to an instance of a SocketClient or Room.
+     * @returns The manager instance for chaining.
+     * @public
+     */
+    public garbage<T extends Socket | Socket[] | Room | Room[]>(instance: Nullable<T>) {
+        instance = null;
+        return this;
+    }
 
 }
