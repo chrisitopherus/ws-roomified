@@ -1,6 +1,6 @@
 import { id } from "../utils/id.js";
 
-import { SocketEvent, SocketEvents, SocketEventsHelper } from "../types/Socket";
+import { SocketEvents, SocketEventsHelper } from "../types/Socket";
 import { AbstractSocketClient } from "./SocketClient";
 
 /**
@@ -8,7 +8,7 @@ import { AbstractSocketClient } from "./SocketClient";
  * @abstract
  * @class
  */
-export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEvents, SocketEvents>, SocketEventsFromServer extends SocketEvents> {
+export abstract class AbstractRoom<Socket extends AbstractSocketClient<SocketEvents, SocketEvents> = any, SocketEventsFromServer extends SocketEvents = any> {
 
     /**
      * Sockets inside the room.

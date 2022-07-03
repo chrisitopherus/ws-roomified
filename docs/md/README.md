@@ -42,6 +42,7 @@ object. But you can use one of the many wrappers available on npm, like
       - [Manager](#manager)
   - [Usage examples](#usage-examples)
     - [Handling a new connection on the server](#handling-a-new-connection-on-the-server)
+    - [Connecting to a room](#connecting-to-a-room)
   - [Changelog](#changelog)
   - [License](#license)
 
@@ -110,6 +111,11 @@ In order to work with this module, you need to extend the provided abstract clas
 
 The SocketClient is meant to be the socket connection saved on the server.
 
+(For TS) The Class takes two optional type parameters in following order:
+
+- `SocketEventsFromServer` (For events sent from the server)
+- `SocketEventsFromClient` (For events sent from the client)
+
 ```ts
 // importing the WebSocket from the ws module to overwrite the initial WebSocket type 
 import { WebSocket } from 'ws';
@@ -132,6 +138,11 @@ Use now the SocketClient class to implement own logic, props or whatever you nee
 
 The Room is meant to group some socket connections together.
 
+(For TS) The Class takes two optional type parameters in following order:
+
+- `Socket` (The SocketClient)
+- `SocketEventsFromServer` (For events sent from the server)
+
 ```ts
 // for TS users, pass the SocketClient and the type alias containing the events sent by the server as generics
 class Room extends AbstractRoom<SocketClient, FromServer>{
@@ -147,6 +158,11 @@ Use now the Room class to implement own logic, props or whatever you need.
 #### Manager
 
 The Manager is meant to stores and manage all sockets and rooms.
+
+(For TS) The Class takes two optional type parameters in following order:
+
+- `Socket` (The SocketClient)
+- `Room` (The Room)
 
 ```ts
 // for TS users, pass the SocketClient and Room as generics
@@ -165,6 +181,25 @@ Use now the Manager class to implement own logic, props or whatever you need.
 **Note: Using the things that were used in the guide.**
 
 ### Handling a new connection on the server
+
+```ts
+// creating an empty Manager with our created class
+const manager = new Manager([], []);
+
+// creating a simple room
+const room = new Room();
+
+// adding the room to the manager
+manager.addRoom(room);
+
+// listening to the connection event
+wsServer.on('connection', socket => {
+    // wrapping the connection in our created SocketCLient class, the connection is automatically passed to the manager
+    const client = new SocketClient(socket, manager);
+});
+```
+
+### Connecting to a room
 
 ```ts
 // creating an empty Manager with our created class

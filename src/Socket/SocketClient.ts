@@ -13,7 +13,7 @@ import { AbstractManager } from "./Manager.js";
  * @abstract
  * @class
  */
-export abstract class AbstractSocketClient<SocketEventsFromServer extends SocketEvents, SocketEventsFromClient extends SocketEvents> {
+export abstract class AbstractSocketClient<SocketEventsFromServer extends SocketEvents = any, SocketEventsFromClient extends SocketEvents = any> {
 
     /**
      * The socket connection.

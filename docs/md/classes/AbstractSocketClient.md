@@ -12,8 +12,8 @@ Abstract class for a SocketClient that implements all necessary methods and prop
 
 | Name | Type |
 | :------ | :------ |
-| `SocketEventsFromServer` | extends [`SocketEvents`](../modules.md#socketevents) |
-| `SocketEventsFromClient` | extends [`SocketEvents`](../modules.md#socketevents) |
+| `SocketEventsFromServer` | extends [`SocketEvents`](../modules.md#socketevents) = `any` |
+| `SocketEventsFromClient` | extends [`SocketEvents`](../modules.md#socketevents) = `any` |
 
 ## Table of contents
 
@@ -57,8 +57,8 @@ Constructor of the abstract SocketClient class.
 
 | Name | Type |
 | :------ | :------ |
-| `SocketEventsFromServer` | extends [`SocketEvents`](../modules.md#socketevents) |
-| `SocketEventsFromClient` | extends [`SocketEvents`](../modules.md#socketevents) |
+| `SocketEventsFromServer` | extends [`SocketEvents`](../modules.md#socketevents) = `any` |
+| `SocketEventsFromClient` | extends [`SocketEvents`](../modules.md#socketevents) = `any` |
 
 #### Parameters
 
@@ -78,7 +78,7 @@ EventEmitter instance used for handling the incoming socket events.
 
 #### Defined in
 
-[Socket/SocketClient.ts:50](https://github.com/chrisitopherus/ws-roomified/blob/ebb3a5c/src/Socket/SocketClient.ts#L50)
+[Socket/SocketClient.ts:50](https://github.com/chrisitopherus/ws-roomified/blob/53693fb/src/Socket/SocketClient.ts#L50)
 
 ___
 
@@ -90,7 +90,7 @@ Id of the socket.
 
 #### Defined in
 
-[Socket/SocketClient.ts:36](https://github.com/chrisitopherus/ws-roomified/blob/ebb3a5c/src/Socket/SocketClient.ts#L36)
+[Socket/SocketClient.ts:36](https://github.com/chrisitopherus/ws-roomified/blob/53693fb/src/Socket/SocketClient.ts#L36)
 
 ___
 
@@ -102,7 +102,7 @@ The socket connection.
 
 #### Defined in
 
-[Socket/SocketClient.ts:22](https://github.com/chrisitopherus/ws-roomified/blob/ebb3a5c/src/Socket/SocketClient.ts#L22)
+[Socket/SocketClient.ts:22](https://github.com/chrisitopherus/ws-roomified/blob/53693fb/src/Socket/SocketClient.ts#L22)
 
 ___
 
@@ -114,7 +114,7 @@ Property containing either the current room instance or `null`.
 
 #### Defined in
 
-[Socket/SocketClient.ts:56](https://github.com/chrisitopherus/ws-roomified/blob/ebb3a5c/src/Socket/SocketClient.ts#L56)
+[Socket/SocketClient.ts:56](https://github.com/chrisitopherus/ws-roomified/blob/53693fb/src/Socket/SocketClient.ts#L56)
 
 ## Accessors
 

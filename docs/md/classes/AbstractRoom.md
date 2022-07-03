@@ -12,8 +12,8 @@ Abstract class for a Room that implements all necessary methods and properties.
 
 | Name | Type |
 | :------ | :------ |
-| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents)\> |
-| `SocketEventsFromServer` | extends [`SocketEvents`](../modules.md#socketevents) |
+| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents)\> = `any` |
+| `SocketEventsFromServer` | extends [`SocketEvents`](../modules.md#socketevents) = `any` |
 
 ## Table of contents
 
@@ -52,8 +52,8 @@ Constructor of the abstract Room class.
 
 | Name | Type |
 | :------ | :------ |
-| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents), `Socket`\> |
-| `SocketEventsFromServer` | extends [`SocketEvents`](../modules.md#socketevents) |
+| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents), `Socket`\> = `any` |
+| `SocketEventsFromServer` | extends [`SocketEvents`](../modules.md#socketevents) = `any` |
 
 #### Parameters
 
@@ -72,7 +72,7 @@ Unique identifier of the room.
 
 #### Defined in
 
-[Socket/Room.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/ebb3a5c/src/Socket/Room.ts#L23)
+[Socket/Room.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/53693fb/src/Socket/Room.ts#L23)
 
 ___
 
@@ -84,7 +84,7 @@ Sockets inside the room.
 
 #### Defined in
 
-[Socket/Room.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/ebb3a5c/src/Socket/Room.ts#L17)
+[Socket/Room.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/53693fb/src/Socket/Room.ts#L17)
 
 ## Accessors
 

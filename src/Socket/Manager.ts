@@ -8,7 +8,7 @@ import { AbstractSocketClient } from "./SocketClient";
  * @abstract
  * @class
  */
-export abstract class AbstractManager<Socket extends AbstractSocketClient<SocketEvents, SocketEvents>, Room extends AbstractRoom<Socket, SocketEvents>> {
+export abstract class AbstractManager<Socket extends AbstractSocketClient<SocketEvents, SocketEvents> = any, Room extends AbstractRoom<Socket, SocketEvents> = any> {
 
     /**
      * All the sockets connected to the server.

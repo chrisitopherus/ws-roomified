@@ -12,8 +12,8 @@ Abstract class managing and storing all sockets and rooms.
 
 | Name | Type |
 | :------ | :------ |
-| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents)\> |
-| `Room` | extends [`AbstractRoom`](AbstractRoom.md)<`Socket`, [`SocketEvents`](../modules.md#socketevents)\> |
+| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents)\> = `any` |
+| `Room` | extends [`AbstractRoom`](AbstractRoom.md)<`Socket`, [`SocketEvents`](../modules.md#socketevents)\> = `any` |
 
 ## Table of contents
 
@@ -55,8 +55,8 @@ Constructor of the abstract Manager class.
 
 | Name | Type |
 | :------ | :------ |
-| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents), `Socket`\> |
-| `Room` | extends [`AbstractRoom`](AbstractRoom.md)<`Socket`, [`SocketEvents`](../modules.md#socketevents), `Room`\> |
+| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents), `Socket`\> = `any` |
+| `Room` | extends [`AbstractRoom`](AbstractRoom.md)<`Socket`, [`SocketEvents`](../modules.md#socketevents), `Room`\> = `any` |
 
 #### Parameters
 
@@ -75,7 +75,7 @@ All the rooms that currently exist.
 
 #### Defined in
 
-[Socket/Manager.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/ebb3a5c/src/Socket/Manager.ts#L23)
+[Socket/Manager.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/53693fb/src/Socket/Manager.ts#L23)
 
 ___
 
@@ -87,7 +87,7 @@ All the sockets connected to the server.
 
 #### Defined in
 
-[Socket/Manager.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/ebb3a5c/src/Socket/Manager.ts#L17)
+[Socket/Manager.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/53693fb/src/Socket/Manager.ts#L17)
 
 ## Accessors
 
