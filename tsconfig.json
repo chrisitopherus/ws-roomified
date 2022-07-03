@@ -5,8 +5,8 @@
         "rootDir": "./src",
         "moduleResolution": "node",
         "declaration": true,
-        "declarationMap": true, // prod - false
-        "sourceMap": true, // prod - false
+        "declarationMap": false, // prod - false
+        "sourceMap": false, // prod - false
         "outDir": "./lib",
         "noEmitOnError": true,
         "esModuleInterop": true,
