@@ -75,7 +75,7 @@ All the rooms that currently exist.
 
 #### Defined in
 
-[Socket/Manager.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/53693fb/src/Socket/Manager.ts#L23)
+[Socket/Manager.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/8367edb/src/Socket/Manager.ts#L23)
 
 ___
 
@@ -87,7 +87,7 @@ All the sockets connected to the server.
 
 #### Defined in
 
-[Socket/Manager.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/53693fb/src/Socket/Manager.ts#L17)
+[Socket/Manager.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/8367edb/src/Socket/Manager.ts#L17)
 
 ## Accessors
 
