@@ -2,7 +2,7 @@
 
 [![Version npm](https://img.shields.io/badge/version-0.5.0-blue.svg?logo=npm)](https://www.npmjs.com/package/ws)
 
-**Note: This package is not for production usage in the current state. Please consider using a different package since I made this package for my own usage.**
+**Note: This package is not for production usage in the current state since it is not really finished. Please consider using a different package since I made this package for my own usage.**
 
 > A room wrapper for the ws module optimized for working with typescript by providing built-in types.
 
