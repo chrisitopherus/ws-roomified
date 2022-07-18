@@ -2,7 +2,7 @@ ws-roomified / [Exports](modules.md)
 
 # ws-roomified
 
-[![Version npm](https://img.shields.io/badge/version-0.5.1-blue.svg?logo=npm)](https://www.npmjs.com/package/ws)
+[![Version npm](https://img.shields.io/badge/version-0.5.2-blue.svg?logo=npm)](https://www.npmjs.com/package/ws)
 
 **Note: This package is not for production usage in the current state since it is not really finished. Please consider using a different package since I made this package for my own usage.**
 

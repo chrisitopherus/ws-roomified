@@ -80,7 +80,7 @@ EventEmitter instance used for handling the incoming socket events.
 
 #### Defined in
 
-[Socket/SocketClient.ts:50](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/SocketClient.ts#L50)
+[Socket/SocketClient.ts:50](https://github.com/chrisitopherus/ws-roomified/blob/1c2069e/src/Socket/SocketClient.ts#L50)
 
 ___
 
@@ -92,7 +92,7 @@ Id of the socket.
 
 #### Defined in
 
-[Socket/SocketClient.ts:36](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/SocketClient.ts#L36)
+[Socket/SocketClient.ts:36](https://github.com/chrisitopherus/ws-roomified/blob/1c2069e/src/Socket/SocketClient.ts#L36)
 
 ___
 
@@ -104,7 +104,7 @@ The socket connection.
 
 #### Defined in
 
-[Socket/SocketClient.ts:22](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/SocketClient.ts#L22)
+[Socket/SocketClient.ts:22](https://github.com/chrisitopherus/ws-roomified/blob/1c2069e/src/Socket/SocketClient.ts#L22)
 
 ___
 
@@ -116,7 +116,7 @@ Property containing either the current room instance or `null`.
 
 #### Defined in
 
-[Socket/SocketClient.ts:56](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/SocketClient.ts#L56)
+[Socket/SocketClient.ts:56](https://github.com/chrisitopherus/ws-roomified/blob/1c2069e/src/Socket/SocketClient.ts#L56)
 
 ## Accessors
 

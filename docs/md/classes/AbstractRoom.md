@@ -72,7 +72,7 @@ Unique identifier of the room.
 
 #### Defined in
 
-[Socket/Room.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/Room.ts#L23)
+[Socket/Room.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/1c2069e/src/Socket/Room.ts#L23)
 
 ___
 
@@ -84,7 +84,7 @@ Sockets inside the room.
 
 #### Defined in
 
-[Socket/Room.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/Room.ts#L17)
+[Socket/Room.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/1c2069e/src/Socket/Room.ts#L17)
 
 ## Accessors
 
