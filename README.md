@@ -1,6 +1,6 @@
 # ws-roomified
 
-[![Version npm](https://img.shields.io/badge/version-0.5.0-blue.svg?logo=npm)](https://www.npmjs.com/package/ws)
+[![Version npm](https://img.shields.io/badge/version-0.5.1-blue.svg?logo=npm)](https://www.npmjs.com/package/ws)
 
 **Note: This package is not for production usage in the current state since it is not really finished. Please consider using a different package since I made this package for my own usage.**
 
@@ -115,13 +115,14 @@ The SocketClient is meant to be the socket connection saved on the server.
 
 - `SocketEventsFromServer` (For events sent from the server)
 - `SocketEventsFromClient` (For events sent from the client)
+- `Room` (The Room)
 
 ```ts
 // importing the WebSocket from the ws module to overwrite the initial WebSocket type 
 import { WebSocket } from 'ws';
 
 // for TS users, pass the type aliases containing the events as generics
-class SocketClient extends AbstractSocketClient<FromServer, FromClient> {
+class SocketClient extends AbstractSocketClient<FromServer, FromClient, Room> {
     // Manager will be the name of the extended AbstractManager class -> later in the guide
 
     // we pass the socket connection and the manager instance since they are needed by the abstract class

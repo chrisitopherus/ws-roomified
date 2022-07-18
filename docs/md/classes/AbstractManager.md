@@ -55,7 +55,7 @@ Constructor of the abstract Manager class.
 
 | Name | Type |
 | :------ | :------ |
-| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents), `Socket`\> = `any` |
+| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents), `any`, `Socket`\> = `any` |
 | `Room` | extends [`AbstractRoom`](AbstractRoom.md)<`Socket`, [`SocketEvents`](../modules.md#socketevents), `Room`\> = `any` |
 
 #### Parameters
@@ -75,7 +75,7 @@ All the rooms that currently exist.
 
 #### Defined in
 
-[Socket/Manager.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/Socket/Manager.ts#L23)
+[Socket/Manager.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/Manager.ts#L23)
 
 ___
 
@@ -87,7 +87,7 @@ All the sockets connected to the server.
 
 #### Defined in
 
-[Socket/Manager.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/Socket/Manager.ts#L17)
+[Socket/Manager.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/Manager.ts#L17)
 
 ## Accessors
 
@@ -179,7 +179,7 @@ Method for clearing a reference from a variable, so it can be collected by the g
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents)\> \| [`AbstractRoom`](AbstractRoom.md)<`Socket`, [`SocketEvents`](../modules.md#socketevents)\> \| `Socket`[] \| `Room`[] |
+| `T` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents), `any`\> \| [`AbstractRoom`](AbstractRoom.md)<`Socket`, [`SocketEvents`](../modules.md#socketevents)\> \| `Socket`[] \| `Room`[] |
 
 #### Parameters
 

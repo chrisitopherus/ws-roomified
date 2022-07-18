@@ -52,7 +52,7 @@ Constructor of the abstract Room class.
 
 | Name | Type |
 | :------ | :------ |
-| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents), `Socket`\> = `any` |
+| `Socket` | extends [`AbstractSocketClient`](AbstractSocketClient.md)<[`SocketEvents`](../modules.md#socketevents), [`SocketEvents`](../modules.md#socketevents), `any`, `Socket`\> = `any` |
 | `SocketEventsFromServer` | extends [`SocketEvents`](../modules.md#socketevents) = `any` |
 
 #### Parameters
@@ -72,7 +72,7 @@ Unique identifier of the room.
 
 #### Defined in
 
-[Socket/Room.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/Socket/Room.ts#L23)
+[Socket/Room.ts:23](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/Room.ts#L23)
 
 ___
 
@@ -84,7 +84,7 @@ Sockets inside the room.
 
 #### Defined in
 
-[Socket/Room.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/Socket/Room.ts#L17)
+[Socket/Room.ts:17](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/Room.ts#L17)
 
 ## Accessors
 

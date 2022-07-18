@@ -38,7 +38,7 @@ Utility type helper for finding the data for a specific event name.
 
 #### Defined in
 
-[types/Socket.ts:19](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/types/Socket.ts#L19)
+[types/Socket.ts:19](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/types/Socket.ts#L19)
 
 ___
 
@@ -64,7 +64,7 @@ Template for creating new Events.
 
 #### Defined in
 
-[types/Socket.ts:4](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/types/Socket.ts#L4)
+[types/Socket.ts:4](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/types/Socket.ts#L4)
 
 ___
 
@@ -78,7 +78,7 @@ Just a Template to define a structure.
 
 #### Defined in
 
-[types/Socket.ts:14](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/types/Socket.ts#L14)
+[types/Socket.ts:14](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/types/Socket.ts#L14)
 
 ___
 
@@ -96,7 +96,7 @@ Utility type helper for creating a mapped type for the socket events.
 
 #### Defined in
 
-[types/Socket.ts:24](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/types/Socket.ts#L24)
+[types/Socket.ts:24](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/types/Socket.ts#L24)
 
 ## Functions
 

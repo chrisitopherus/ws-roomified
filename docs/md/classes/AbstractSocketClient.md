@@ -1,6 +1,6 @@
 [ws-roomified](../README.md) / [Exports](../modules.md) / AbstractSocketClient
 
-# Class: AbstractSocketClient<SocketEventsFromServer, SocketEventsFromClient\>
+# Class: AbstractSocketClient<SocketEventsFromServer, SocketEventsFromClient, Room\>
 
 Abstract class for a SocketClient that implements all necessary methods and properties.
 
@@ -14,6 +14,7 @@ Abstract class for a SocketClient that implements all necessary methods and prop
 | :------ | :------ |
 | `SocketEventsFromServer` | extends [`SocketEvents`](../modules.md#socketevents) = `any` |
 | `SocketEventsFromClient` | extends [`SocketEvents`](../modules.md#socketevents) = `any` |
+| `Room` | extends [`AbstractRoom`](AbstractRoom.md)<[`AbstractSocketClient`](AbstractSocketClient.md), `SocketEventsFromServer`\> = `any` |
 
 ## Table of contents
 
@@ -47,7 +48,7 @@ Abstract class for a SocketClient that implements all necessary methods and prop
 
 ### constructor
 
-• **new AbstractSocketClient**<`SocketEventsFromServer`, `SocketEventsFromClient`\>(`_socket`, `_managerInstance`, `_id?`)
+• **new AbstractSocketClient**<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>(`_socket`, `_managerInstance`, `_id?`)
 
 Constructor of the abstract SocketClient class.
 
@@ -59,13 +60,14 @@ Constructor of the abstract SocketClient class.
 | :------ | :------ |
 | `SocketEventsFromServer` | extends [`SocketEvents`](../modules.md#socketevents) = `any` |
 | `SocketEventsFromClient` | extends [`SocketEvents`](../modules.md#socketevents) = `any` |
+| `Room` | extends [`AbstractRoom`](AbstractRoom.md)<[`AbstractSocketClient`](AbstractSocketClient.md)<`any`, `any`, `any`\>, `SocketEventsFromServer`, `Room`\> = `any` |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `_socket` | `WebSocket` | The socket connection. |
-| `_managerInstance` | [`AbstractManager`](AbstractManager.md)<[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>, [`AbstractRoom`](AbstractRoom.md)<[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>, `SocketEventsFromServer`\>\> | Manager instance reference to have access to rooms. |
+| `_managerInstance` | [`AbstractManager`](AbstractManager.md)<[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `any`\>, [`AbstractRoom`](AbstractRoom.md)<[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `any`\>, `SocketEventsFromServer`\>\> | Manager instance reference to have access to rooms. |
 | `_id?` | `string` | Optional setting id of the socket. `By default it will create an uuid`. |
 
 ## Properties
@@ -78,7 +80,7 @@ EventEmitter instance used for handling the incoming socket events.
 
 #### Defined in
 
-[Socket/SocketClient.ts:50](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/Socket/SocketClient.ts#L50)
+[Socket/SocketClient.ts:50](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/SocketClient.ts#L50)
 
 ___
 
@@ -90,7 +92,7 @@ Id of the socket.
 
 #### Defined in
 
-[Socket/SocketClient.ts:36](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/Socket/SocketClient.ts#L36)
+[Socket/SocketClient.ts:36](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/SocketClient.ts#L36)
 
 ___
 
@@ -102,19 +104,19 @@ The socket connection.
 
 #### Defined in
 
-[Socket/SocketClient.ts:22](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/Socket/SocketClient.ts#L22)
+[Socket/SocketClient.ts:22](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/SocketClient.ts#L22)
 
 ___
 
 ### currentRoom
 
-• **currentRoom**: ``null`` \| [`AbstractRoom`](AbstractRoom.md)<[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>, `SocketEventsFromServer`\> = `null`
+• **currentRoom**: ``null`` \| `Room` = `null`
 
 Property containing either the current room instance or `null`.
 
 #### Defined in
 
-[Socket/SocketClient.ts:56](https://github.com/chrisitopherus/ws-roomified/blob/5a5d150/src/Socket/SocketClient.ts#L56)
+[Socket/SocketClient.ts:56](https://github.com/chrisitopherus/ws-roomified/blob/52f8ca5/src/Socket/SocketClient.ts#L56)
 
 ## Accessors
 
@@ -144,7 +146,7 @@ Getter for reading the socket instance.
 
 ### join
 
-▸ **join**(`id`): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+▸ **join**(`id`): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 Method for joining a new room.
 
@@ -156,7 +158,7 @@ Method for joining a new room.
 
 #### Returns
 
-[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 The socket client instance for chaining.
 
@@ -164,13 +166,13 @@ ___
 
 ### leave
 
-▸ **leave**(): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+▸ **leave**(): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 Method for leaving the current room.
 
 #### Returns
 
-[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 The socket client instance for chaining.
 
@@ -178,7 +180,7 @@ ___
 
 ### leaveRoomById
 
-▸ **leaveRoomById**(`id`): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+▸ **leaveRoomById**(`id`): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 Method for leaving a room by its id.
 
@@ -190,7 +192,7 @@ Method for leaving a room by its id.
 
 #### Returns
 
-[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 The socket client instance for chaining.
 
@@ -198,7 +200,7 @@ ___
 
 ### off
 
-▸ **off**<`E`\>(`event`, `cb`): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+▸ **off**<`E`\>(`event`, `cb`): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 Method for unregistering a handler from a specific socket event.
 
@@ -217,7 +219,7 @@ Method for unregistering a handler from a specific socket event.
 
 #### Returns
 
-[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 The socket client instance for chaining.
 
@@ -225,7 +227,7 @@ ___
 
 ### on
 
-▸ **on**<`E`\>(`event`, `cb`): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+▸ **on**<`E`\>(`event`, `cb`): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 Method for registering a handler to a specific socket event sent by a client.
 
@@ -240,11 +242,11 @@ Method for registering a handler to a specific socket event sent by a client.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `event` | `E` | The event name. |
-| `cb` | (`this`: [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>, `message`: [`SocketEventsHelper`](../modules.md#socketeventshelper)<`SocketEventsFromClient`\>[`E`]) => `unknown` | Callback function to be called when the socket event from the client occured. |
+| `cb` | (`this`: [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>, `message`: [`SocketEventsHelper`](../modules.md#socketeventshelper)<`SocketEventsFromClient`\>[`E`]) => `unknown` | Callback function to be called when the socket event from the client occured. |
 
 #### Returns
 
-[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 The socket client instance for chaining.
 
@@ -276,7 +278,7 @@ ___
 
 ### sendMessage
 
-▸ **sendMessage**<`E`\>(`event`, `data`): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+▸ **sendMessage**<`E`\>(`event`, `data`): [`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 Method for sending a message to the client.
 
@@ -295,6 +297,6 @@ Method for sending a message to the client.
 
 #### Returns
 
-[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`\>
+[`AbstractSocketClient`](AbstractSocketClient.md)<`SocketEventsFromServer`, `SocketEventsFromClient`, `Room`\>
 
 The socket client instance for chaining.

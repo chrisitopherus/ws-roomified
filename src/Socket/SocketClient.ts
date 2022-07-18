@@ -13,7 +13,7 @@ import { AbstractManager } from "./Manager.js";
  * @abstract
  * @class
  */
-export abstract class AbstractSocketClient<SocketEventsFromServer extends SocketEvents = any, SocketEventsFromClient extends SocketEvents = any> {
+export abstract class AbstractSocketClient<SocketEventsFromServer extends SocketEvents = any, SocketEventsFromClient extends SocketEvents = any, Room extends AbstractRoom<AbstractSocketClient, SocketEventsFromServer> = any> {
 
     /**
      * The socket connection.
@@ -53,7 +53,7 @@ export abstract class AbstractSocketClient<SocketEventsFromServer extends Socket
      * Property containing either the current room instance or `null`.
      * @public
      */
-    public currentRoom: AbstractRoom<AbstractSocketClient<SocketEventsFromServer, SocketEventsFromClient>, SocketEventsFromServer> | null = null;
+    public currentRoom: Room | null = null;
 
     /**
      * Constructor of the abstract SocketClient class.
